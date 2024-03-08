@@ -6,7 +6,7 @@ const Entity = () => {
       <h3 className="font-semibold px-2 py-3 text-lg">Entity</h3>
       <div className="flex flex-col">
         <Link
-          className="hover:bg-[#eee] hover:font-semibold px-2 hover:rounded-md py-2 text-[14px]"
+          className="bg-[#eee] font-semibold px-2 rounded-md py-2 text-[14px]"
           href=""
         >
           User
