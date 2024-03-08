@@ -21,13 +21,13 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    (async () => {
-      const result = await test();
-      setData(result.data.result);
-      console.log(">>>>>", result.data.result);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const result = await test();
+  //     setData(result.data.result);
+  //     console.log(">>>>>", result.data.result);
+  //   })();
+  // }, []);
 
   return (
     <main className="flex flex-col sm:flex-row px-4 py-5 w-full gap-2 mb-5">
