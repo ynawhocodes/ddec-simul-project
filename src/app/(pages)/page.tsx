@@ -11,15 +11,15 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [data, setData] = useState();
 
-  const test = async () => {
-    try {
-      const response = await fetch("/api/test");
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      throw new Error("[싪패]");
-    }
-  };
+  // const test = async () => {
+  //   try {
+  //     const response = await fetch("/api/test");
+  //     const data = await response.json();
+  //     return data;
+  //   } catch (error) {
+  //     throw new Error("[싪패]");
+  //   }
+  // };
 
   // useEffect(() => {
   //   (async () => {
