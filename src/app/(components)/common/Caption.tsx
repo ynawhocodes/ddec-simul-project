@@ -6,48 +6,58 @@ import { useState } from "react";
 const Caption = ({
   level,
   localId,
+  isCustomizationMode,
   handleStorageTypeByLocalId,
 }: {
   level: number;
   localId: number;
+  isCustomizationMode: boolean;
   handleStorageTypeByLocalId: (localId: number, storageType: string) => void;
 }) => {
-  const [storageType, setStorageType] = useState("CLOUD");
+  const [storageType, setStorageType] = useState(
+    getStorageType(level, localId)
+  );
 
   return (
     <div className="p-3 flex flex-col gap-1 absolute left-10 top-10 bg-white/80 rounded-lg shadow-lg flex-nowrap cursor-pointer">
-      <div className="flex gap-2 border-b pb-2 border-gray-300">
+      <div className="flex gap-2 border-b pb-2 border-gray-300 items-center">
         <p className="font-semibold whitespace-nowrap text-[14px]">
           Storage type
         </p>
-        <div className="flex gap-2 items-center">
-          <div className="flex items-center gap-1">
-            <input
-              className="checked:bg-slate-500"
-              type="radio"
-              value={storageType}
-              checked={getStorageType(level, localId) === "CLOUD"}
-              onChange={() => {
-                setStorageType("CLOUD");
-                handleStorageTypeByLocalId(localId, "CLOUD");
-              }}
-            />
-            <label className="text-[12px]">Cloud</label>
+        {isCustomizationMode ? (
+          <div className="flex gap-2 items-center">
+            <div className="flex items-center gap-1">
+              <input
+                className="checked:bg-slate-500"
+                type="radio"
+                value={storageType}
+                checked={storageType === "CLOUD"}
+                onChange={() => {
+                  setStorageType("CLOUD");
+                  handleStorageTypeByLocalId(localId, "CLOUD");
+                }}
+              />
+              <label className="text-[12px]">Cloud</label>
+            </div>
+            <div className="flex items-center gap-1">
+              <input
+                className="checked:bg-slate-500"
+                type="radio"
+                value={storageType}
+                checked={storageType === "EDGE"}
+                onChange={() => {
+                  setStorageType("EDGE");
+                  handleStorageTypeByLocalId(localId, "EDGE");
+                }}
+              />
+              <label className="text-[12px]">Edge</label>
+            </div>
           </div>
-          <div className="flex items-center gap-1">
-            <input
-              className="checked:bg-slate-500"
-              type="radio"
-              value={storageType}
-              checked={getStorageType(level, localId) === "EDGE"}
-              onChange={() => {
-                setStorageType("EDGE");
-                handleStorageTypeByLocalId(localId, "EDGE");
-              }}
-            />
-            <label className="text-[12px]">Edge</label>
-          </div>
-        </div>
+        ) : (
+          <>
+            <label className="text-[12px]">{storageType}</label>
+          </>
+        )}
       </div>
       <div className="flex gap-1">
         <p className="font-semibold whitespace-nowrap text-[12px]">
@@ -60,9 +70,7 @@ const Caption = ({
           Storage id:
         </p>
         <p className="text-[12px]">
-          {getStorageType(level, localId) === "CLOUD"
-            ? "0"
-            : captionInfo[localId - 1].local_id}
+          {storageType === "CLOUD" ? "0" : captionInfo[localId - 1].local_id}
         </p>
       </div>
       <div className="flex gap-1">
@@ -88,11 +96,13 @@ const Caption = ({
 const CaptionProvider = ({
   level,
   localId,
+  isCustomizationMode,
   children,
   handleStorageTypeByLocalId,
 }: {
   level: number;
   localId: number;
+  isCustomizationMode: boolean;
   handleStorageTypeByLocalId: (localId: number, storageType: string) => void;
   children: React.ReactNode;
 }) => {
@@ -111,6 +121,7 @@ const CaptionProvider = ({
         <Caption
           level={level}
           localId={localId}
+          isCustomizationMode={isCustomizationMode}
           handleStorageTypeByLocalId={handleStorageTypeByLocalId}
         />
       )}

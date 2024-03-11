@@ -2,10 +2,14 @@ import SectionWrapper from "./common/SectionWrapper";
 
 const ManagementBoard = ({
   level,
+  isCustomizationMode,
   handleLevel,
+  handleCustomizationMode,
 }: {
   level: number;
+  isCustomizationMode: boolean;
   handleLevel: (l: number) => void;
+  handleCustomizationMode: (state: boolean) => void;
 }) => {
   return (
     <SectionWrapper title="Management Board">
@@ -18,6 +22,7 @@ const ManagementBoard = ({
             role="switch"
             id="flexSwitchCheckDefault02"
             defaultChecked
+            disabled
           />
         </div>
         <div className="flex gap-2">
@@ -28,6 +33,7 @@ const ManagementBoard = ({
             role="switch"
             id="flexSwitchCheckDefault02"
             defaultChecked
+            onChange={() => handleCustomizationMode(!isCustomizationMode)}
           />
         </div>
         <p className="text-[14px]">Distribution level</p>
@@ -39,6 +45,17 @@ const ManagementBoard = ({
           defaultValue={level}
           onChange={(e) => handleLevel(Number(e.target.value))}
         />
+      </div>
+      <div className="flex justify-between">
+        {["Cloud", "Lv 1", "Lv 2", "Lv 3", "Lv 4", "Edge"].map((el, i) => (
+          <p
+            className="text-[12px]"
+            style={i === level ? { color: "#6B7280" } : { color: "#c5c5c5" }}
+            key={i}
+          >
+            {el}
+          </p>
+        ))}
       </div>
     </SectionWrapper>
   );

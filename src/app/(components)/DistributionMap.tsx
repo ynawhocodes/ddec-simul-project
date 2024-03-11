@@ -18,9 +18,11 @@ import { getStorageType } from "@/_utils/getStorageType";
 
 const DistributionMap = ({
   level,
+  isCustomizationMode,
   handleStorageTypeByLocalId,
 }: {
   level: number;
+  isCustomizationMode: boolean;
   handleStorageTypeByLocalId: (localId: number, storageType: string) => void;
 }) => {
   return (
@@ -32,6 +34,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={1}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <OneBlock storageType={getStorageType(level, 1)} />
@@ -41,6 +44,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={2}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <TwoBlock storageType={getStorageType(level, 2)} />
@@ -50,6 +54,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={3}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <ThreeBlock storageType={getStorageType(level, 3)} />
@@ -59,6 +64,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={4}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <FourBlock storageType={getStorageType(level, 4)} />
@@ -68,6 +74,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={5}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <FiveBlock storageType={getStorageType(level, 5)} />
@@ -77,6 +84,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={6}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <SixBlock storageType={getStorageType(level, 6)} />
@@ -86,6 +94,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={7}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <SevenBlock storageType={getStorageType(level, 7)} />
@@ -95,6 +104,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={8}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <EightBlock storageType={getStorageType(level, 8)} />
@@ -104,6 +114,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={9}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <NineBlock storageType={getStorageType(level, 9)} />
@@ -113,6 +124,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={10}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <TenBlock storageType={getStorageType(level, 10)} />
@@ -122,6 +134,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={11}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <ElevenBlock storageType={getStorageType(level, 11)} />
@@ -131,6 +144,7 @@ const DistributionMap = ({
           <CaptionProvider
             level={level}
             localId={12}
+            isCustomizationMode={isCustomizationMode}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
             <TwelveBlock storageType={getStorageType(level, 12)} />
