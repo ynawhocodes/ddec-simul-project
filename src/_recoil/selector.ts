@@ -1,5 +1,5 @@
 import { DefaultValue, selector } from "recoil";
-import { IS_CUSTOMIZATION_MODE, LEVEL, STRATEGY } from "./atom";
+import { IS_CUSTOMIZATION_MODE, STRATEGY } from "./atom";
 
 const strategyState = selector({
   key: "strategyStateByLabel_selector",
@@ -9,16 +9,6 @@ const strategyState = selector({
   },
   set: ({ set }, newValue) =>
     set(STRATEGY, newValue instanceof DefaultValue ? [] : newValue),
-});
-
-const levelState = selector({
-  key: "level_selector",
-  get: ({ get }) => {
-    const data = get(LEVEL);
-    return data;
-  },
-  set: ({ set }, newValue) =>
-    set(LEVEL, newValue instanceof DefaultValue ? 0 : newValue),
 });
 
 const isCustomizationModeState = selector({
@@ -34,4 +24,4 @@ const isCustomizationModeState = selector({
     ),
 });
 
-export { strategyState, levelState, isCustomizationModeState };
+export { strategyState, isCustomizationModeState };

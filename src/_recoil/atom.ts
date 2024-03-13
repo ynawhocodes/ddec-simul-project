@@ -18,14 +18,9 @@ const STRATEGY = atom({
   ],
 });
 
-const LEVEL = atom({
-  key: "level",
-  default: 0,
-});
-
 const IS_CUSTOMIZATION_MODE = atom({
   key: "isCustomizationMode",
   default: true,
 });
 
-export { STRATEGY, LEVEL, IS_CUSTOMIZATION_MODE };
+export { STRATEGY, IS_CUSTOMIZATION_MODE };

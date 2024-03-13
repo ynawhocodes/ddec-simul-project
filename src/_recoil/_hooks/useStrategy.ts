@@ -1,30 +1,27 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { allOfStrategyData } from "@/_assets/data/strategy";
-import { levelState, strategyState } from "../selector";
+import { strategyState } from "../selector";
 import { StrategyType } from "@/_types/data";
 
 const useStategy = () => {
   const [strategy, setStrategy] = useRecoilState(strategyState);
-  const currentLevel = useRecoilValue(levelState);
 
   const setStorageType = (localId: number, storageType: string) => {
-    const newArr: StrategyType[] = strategy.map((el) => {
+    const custromStrategy: StrategyType[] = strategy.map((el) => {
       if (el.local_id === localId) {
         return { ...el, storage_type: storageType };
       } else {
         return { ...el };
       }
     });
-
-    setStrategy(newArr);
+    setStrategy(custromStrategy);
   };
 
-  const setStrategyByLevel = () => {
-    setStrategy(allOfStrategyData[currentLevel]);
+  const setStrategyByLevel = (level: number) => {
+    setStrategy(allOfStrategyData[level]);
   };
 
   const getStorageType = (localId: number) => {
-    // setStrategyByLevel();
     return strategy.find((el) => el.local_id === localId)?.storage_type || "";
   };
 

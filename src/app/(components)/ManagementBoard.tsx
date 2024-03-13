@@ -1,14 +1,13 @@
-import { useRecoilState } from "recoil";
 import SectionWrapper from "./common/SectionWrapper";
-import { useLevel } from "@/_recoil/_hooks/useLevel";
 import { useCustomizationMode } from "@/_recoil/_hooks/useCustomizationMode";
 import { useStategy } from "@/_recoil/_hooks/useStrategy";
+import { useState } from "react";
 
 const ManagementBoard = ({}: {}) => {
-  const { level, setLevel } = useLevel();
   const { isCustomizationMode, setIsCustomizationMode } =
     useCustomizationMode();
   const { setStrategyByLevel } = useStategy();
+  const [level, setLevel] = useState(0);
   return (
     <SectionWrapper title="Management Board">
       <div className="flex flex-col gap-2">
@@ -42,9 +41,8 @@ const ManagementBoard = ({}: {}) => {
           max="5"
           defaultValue={0}
           onChange={(e) => {
-            console.log(e.target.value, ">>", level);
+            setStrategyByLevel(Number(e.target.value));
             setLevel(Number(e.target.value));
-            setStrategyByLevel();
           }}
         />
       </div>
