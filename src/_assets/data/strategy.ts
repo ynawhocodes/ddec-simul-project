@@ -83,15 +83,6 @@ const fiveLevelData = [
   { local_id: 12, storage_type: "EDGE", storage_id: 12 },
 ];
 
-const strategyData = [
-  [],
-  [5],
-  [5, 8],
-  [4, 5, 6, 8, 10],
-  [1, 4, 5, 6, 7, 8, 9, 10, 12],
-  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-];
-
 const allOfStrategyData = [
   zeroLevelData,
   oneLevelData,
@@ -108,6 +99,5 @@ export {
   threeLevelData,
   fourLevelData,
   fiveLevelData,
-  strategyData,
   allOfStrategyData,
 };
