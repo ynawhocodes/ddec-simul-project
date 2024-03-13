@@ -1,22 +1,11 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../globals.css";
+"use client";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "DDEC",
-  description: "Data Distribution Edge Cloud Simulation",
-};
+import { RecoilRoot } from "recoil";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={`${inter.className} h-full`}>{children}</body>
-    </html>
-  );
+  return <RecoilRoot>{children}</RecoilRoot>;
 }
