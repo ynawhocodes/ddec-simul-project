@@ -18,7 +18,6 @@ const ManagementBoard = ({}: {}) => {
             type="checkbox"
             role="switch"
             id="flexSwitchCheckDefault02"
-            defaultChecked
             disabled
           />
         </div>
