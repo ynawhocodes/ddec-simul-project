@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-const todoListState = atom({
-  key: "todoListState",
+const strategyState = atom({
+  key: "strategyState",
   default: [],
 });
