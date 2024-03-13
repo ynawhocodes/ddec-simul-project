@@ -1,19 +1,20 @@
 import { captionInfo } from "@/_assets/data/caption";
+import { useCustomizationMode } from "@/_recoil/_hooks/useCustomizationMode";
+import { useLevel } from "@/_recoil/_hooks/useLevel";
 import { getStorageType } from "@/_utils/getStorageType";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
 const Caption = ({
-  level,
   localId,
-  isCustomizationMode,
   handleStorageTypeByLocalId,
 }: {
-  level: number;
   localId: number;
-  isCustomizationMode: boolean;
   handleStorageTypeByLocalId: (localId: number, storageType: string) => void;
 }) => {
+  const { level, setLevel } = useLevel();
+  const { isCustomizationMode, setIsCustomizationMode } =
+    useCustomizationMode();
   const [storageType, setStorageType] = useState(
     getStorageType(level, localId)
   );
@@ -94,15 +95,11 @@ const Caption = ({
 };
 
 const CaptionProvider = ({
-  level,
   localId,
-  isCustomizationMode,
   children,
   handleStorageTypeByLocalId,
 }: {
-  level: number;
   localId: number;
-  isCustomizationMode: boolean;
   handleStorageTypeByLocalId: (localId: number, storageType: string) => void;
   children: React.ReactNode;
 }) => {
@@ -119,9 +116,7 @@ const CaptionProvider = ({
       {children}
       {isHover && (
         <Caption
-          level={level}
           localId={localId}
-          isCustomizationMode={isCustomizationMode}
           handleStorageTypeByLocalId={handleStorageTypeByLocalId}
         />
       )}

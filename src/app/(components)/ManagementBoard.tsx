@@ -1,16 +1,14 @@
+import { useRecoilState } from "recoil";
 import SectionWrapper from "./common/SectionWrapper";
+import { levelState } from "@/_recoil/atom";
+import { useLevel } from "@/_recoil/_hooks/useLevel";
+import { useCustomizationMode } from "@/_recoil/_hooks/useCustomizationMode";
 
-const ManagementBoard = ({
-  level,
-  isCustomizationMode,
-  handleLevel,
-  handleCustomizationMode,
-}: {
-  level: number;
-  isCustomizationMode: boolean;
-  handleLevel: (l: number) => void;
-  handleCustomizationMode: (state: boolean) => void;
-}) => {
+const ManagementBoard = ({}: {}) => {
+  const { level, setLevel } = useLevel();
+  const { isCustomizationMode, setIsCustomizationMode } =
+    useCustomizationMode();
+
   return (
     <SectionWrapper title="Management Board">
       <div className="flex flex-col gap-2">
@@ -33,7 +31,7 @@ const ManagementBoard = ({
             role="switch"
             id="flexSwitchCheckDefault02"
             defaultChecked
-            onChange={() => handleCustomizationMode(!isCustomizationMode)}
+            onChange={() => setIsCustomizationMode(!isCustomizationMode)}
           />
         </div>
         <p className="text-[14px]">Distribution level</p>
@@ -43,7 +41,7 @@ const ManagementBoard = ({
           min="0"
           max="5"
           defaultValue={level}
-          onChange={(e) => handleLevel(Number(e.target.value))}
+          onChange={(e) => setLevel(Number(e.target.value))}
         />
       </div>
       <div className="flex justify-between">
