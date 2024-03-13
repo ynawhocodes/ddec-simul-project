@@ -6,29 +6,11 @@ import DistributionMap from "../(components)/DistributionMap";
 import EstimatedCosts from "../(components)/EstimatedCosts";
 import EstimatedPerformance from "../(components)/EstimatedPerformance";
 import TotalResult from "../(components)/TotalResult";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RecoilRoot } from "recoil";
 
 export default function Home() {
   const [data, setData] = useState();
-
-  // const test = async () => {
-  //   try {
-  //     const response = await fetch("/api/test");
-  //     const data = await response.json();
-  //     return data;
-  //   } catch (error) {
-  //     throw new Error("[싪패]");
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const result = await test();
-  //     setData(result.data.result);
-  //     console.log(">>>>>", result.data.result);
-  //   })();
-  // }, []);
 
   return (
     <RecoilRoot>

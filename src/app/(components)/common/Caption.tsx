@@ -1,12 +1,12 @@
 import { CAPTION_INFO } from "@/_assets/data/caption";
 import { useCustomizationMode } from "@/_recoil/_hooks/useCustomizationMode";
-import { useStategy } from "@/_recoil/_hooks/useStrategy";
+import { useStrategy } from "@/_recoil/_hooks/useStrategy";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
 const Caption = ({ localId }: { localId: number }) => {
   const { isCustomizationMode } = useCustomizationMode();
-  const { getStorageType, setStorageType } = useStategy();
+  const { getStorageType, setStorageType } = useStrategy();
 
   return (
     <div className="p-3 flex flex-col gap-1 absolute left-10 top-10 bg-white/80 rounded-lg shadow-lg flex-nowrap cursor-pointer">

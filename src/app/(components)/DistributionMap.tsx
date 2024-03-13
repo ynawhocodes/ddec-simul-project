@@ -14,10 +14,10 @@ import {
 } from "@/_assets/icons";
 import SectionWrapper from "./common/SectionWrapper";
 import CaptionProvider from "./common/Caption";
-import { useStategy } from "@/_recoil/_hooks/useStrategy";
+import { useStrategy } from "@/_recoil/_hooks/useStrategy";
 
 const DistributionMap = ({}: {}) => {
-  const { getStorageType } = useStategy();
+  const { getStorageType } = useStrategy();
   return (
     <SectionWrapper title="Distribution Map">
       <div className="bg-gray-200 w-full relative">
