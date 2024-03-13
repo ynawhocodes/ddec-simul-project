@@ -1,18 +1,37 @@
-import { selector } from "recoil";
-import { levelState, strategyState } from "./atom";
+import { DefaultValue, selector } from "recoil";
+import { IS_CUSTOMIZATION_MODE, LEVEL, STRATEGY } from "./atom";
 
-const getStrategyStateByLevel = selector({
-  key: "strategyStateByLabel",
+const strategyState = selector({
+  key: "strategyStateByLabel_selector",
   get: ({ get }) => {
-    const data = get(strategyState);
+    const data = get(STRATEGY);
+    return data;
   },
+  set: ({ set }, newValue) =>
+    set(STRATEGY, newValue instanceof DefaultValue ? [] : newValue),
 });
 
-const getLevel = selector({
-  key: "level",
+const levelState = selector({
+  key: "level_selector",
   get: ({ get }) => {
-    const data = get(levelState);
+    const data = get(LEVEL);
+    return data;
   },
+  set: ({ set }, newValue) =>
+    set(LEVEL, newValue instanceof DefaultValue ? 0 : newValue),
 });
 
-export { getStrategyStateByLevel, getLevel };
+const isCustomizationModeState = selector({
+  key: "isCustomizationMode_selector",
+  get: ({ get }) => {
+    const data = get(IS_CUSTOMIZATION_MODE);
+    return data;
+  },
+  set: ({ set }, newValue) =>
+    set(
+      IS_CUSTOMIZATION_MODE,
+      newValue instanceof DefaultValue ? true : newValue
+    ),
+});
+
+export { strategyState, levelState, isCustomizationModeState };

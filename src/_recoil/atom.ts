@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
-const strategyState = atom({
-  key: "strategyState",
+const STRATEGY = atom({
+  key: "STRATEGY",
   default: [
     { local_id: 1, storage_type: "CLOUD", storage_id: 0 },
     { local_id: 2, storage_type: "CLOUD", storage_id: 0 },
@@ -18,14 +18,14 @@ const strategyState = atom({
   ],
 });
 
-const levelState = atom({
-  key: "levelState",
+const LEVEL = atom({
+  key: "level",
   default: 0,
 });
 
-const isCustomizationModeState = atom({
-  key: "isCustomizationModeState",
+const IS_CUSTOMIZATION_MODE = atom({
+  key: "isCustomizationMode",
   default: true,
 });
 
-export { strategyState, levelState, isCustomizationModeState };
+export { STRATEGY, LEVEL, IS_CUSTOMIZATION_MODE };
