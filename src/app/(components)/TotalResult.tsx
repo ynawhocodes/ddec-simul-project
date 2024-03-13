@@ -6,7 +6,7 @@ import SectionWrapper from "./common/SectionWrapper";
 const TotalResult = ({ data }: { data: ResultType }) => {
   return (
     <SectionWrapper title="Total Result">
-      <div className="flex gap-2">
+      <div className="flex gap-10">
         <BlueLabelData blueLabelText="Total Cost">
           <div className="flex items-center h-full">
             <FormattedData data={data["11total_cost"] || 0} unit="$" />

@@ -9,7 +9,7 @@ const EstimatedPerformance = ({ data }: { data: ResultType }) => {
     <SectionWrapper title="Estimated Performance">
       <div className="flex flex-col gap-5">
         <BlueLabelData blueLabelText="Average response time">
-          <div className="flex gap-2">
+          <div className="flex gap-5">
             <FormattedDataWithLabel
               label="total"
               data={data["01avg_response_time"] || 0}
@@ -28,7 +28,7 @@ const EstimatedPerformance = ({ data }: { data: ResultType }) => {
           </div>
         </BlueLabelData>
         <BlueLabelData blueLabelText="Success rate">
-          <div className="flex gap-2">
+          <div className="flex gap-5">
             <FormattedDataWithLabel
               label="total"
               data={data["06success_rate_in_downtime($s)"] || 0}
@@ -47,7 +47,7 @@ const EstimatedPerformance = ({ data }: { data: ResultType }) => {
           </div>
         </BlueLabelData>
         <BlueLabelData blueLabelText="Response time (min, max)">
-          <div className="flex gap-2">
+          <div className="flex gap-5">
             <FormattedDataWithLabel
               label="min"
               data={data["04min_response_time"] || 0}
