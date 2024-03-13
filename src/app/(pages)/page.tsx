@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <RecoilRoot>
-      <main className="flex flex-col sm:flex-row px-4 py-5 w-full gap-2 mb-5">
+      <main className="flex flex-col sm:flex-row px-4 py-5 w-full gap-2">
         <div className="basis-[20%]">
           <Entity />
         </div>
@@ -41,8 +41,13 @@ export default function Home() {
             <ManagementBoard />
           </div>
           <div className="flex-col lg:flex-row gap-2 flex">
-            <div className="lg:basis-[70%]">
-              <DistributionMap />
+            <div className="lg:basis-[70%] flex flex-col gap-2 ">
+              <div className="basis-auto">
+                <DistributionMap />
+              </div>
+              <div className="">
+                <TotalResult />
+              </div>
             </div>
             <div className="flex lg:flex-col gap-2 lg:basis-[30%]">
               <div className="basis-auto">
@@ -52,9 +57,6 @@ export default function Home() {
                 <EstimatedPerformance />
               </div>
             </div>
-          </div>
-          <div className="basis-auto">
-            <TotalResult />
           </div>
         </div>
       </main>
