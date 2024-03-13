@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { levelState } from "../atom";
+import { levelState } from "../selector";
 
 const useLevel = () => {
   const [level, setLevel] = useRecoilState(levelState);
