@@ -13,9 +13,8 @@ const LevelOption = ({
 }) => {
   return (
     <div
-      className={`bg-white basis-[1/6] flex flex-col items-center justify-between min-w-[220px] p-5 rounded-xl hover:bg-[#eee] pointer-cursor ${
-        checked && "bg-[#5D63F1]/10"
-      }`}
+      className={`bg-white basis-[1/6] flex flex-col items-center justify-between min-w-[220px] p-5 rounded-xl hover:bg-[#f5f5f5] pointer-cursor`}
+      style={checked ? { backgroundColor: "#d0d2ff" } : {}}
       onClick={onChange}
     >
       <div className="flex flex-col items-center">
