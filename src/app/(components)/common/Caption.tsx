@@ -1,4 +1,4 @@
-import { captionInfo } from "@/_assets/data/caption";
+import { CAPTION_INFO } from "@/_assets/data/caption";
 import { useCustomizationMode } from "@/_recoil/_hooks/useCustomizationMode";
 import { useStategy } from "@/_recoil/_hooks/useStrategy";
 import { motion } from "framer-motion";
@@ -51,7 +51,7 @@ const Caption = ({ localId }: { localId: number }) => {
         <p className="font-semibold whitespace-nowrap text-[12px]">
           Location id:
         </p>
-        <p className="text-[12px]">{`${captionInfo[localId - 1].local_id}`}</p>
+        <p className="text-[12px]">{`${CAPTION_INFO[localId - 1].local_id}`}</p>
       </div>
       <div className="flex gap-1">
         <p className="font-semibold whitespace-nowrap text-[12px]">
@@ -60,7 +60,7 @@ const Caption = ({ localId }: { localId: number }) => {
         <p className="text-[12px]">
           {getStorageType(localId) === "CLOUD"
             ? "0"
-            : captionInfo[localId - 1].local_id}
+            : CAPTION_INFO[localId - 1].local_id}
         </p>
       </div>
       <div className="flex gap-1">
@@ -68,7 +68,7 @@ const Caption = ({ localId }: { localId: number }) => {
           Data size:
         </p>
         <p className="text-[12px]">{`${
-          captionInfo[localId - 1].data_size
+          CAPTION_INFO[localId - 1].data_size
         } GB`}</p>
       </div>
       <div className="flex gap-1">
@@ -76,7 +76,7 @@ const Caption = ({ localId }: { localId: number }) => {
           # of users:
         </p>
         <p className="text-[12px]">{`${
-          captionInfo[localId - 1].population
+          CAPTION_INFO[localId - 1].population
         }`}</p>
       </div>
     </div>

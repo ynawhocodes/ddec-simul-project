@@ -1,4 +1,4 @@
-const captionInfo = [
+const CAPTION_INFO = [
   {
     local_id: 1,
     storage_type: "CLOUD",
@@ -85,4 +85,4 @@ const captionInfo = [
   },
 ];
 
-export { captionInfo };
+export { CAPTION_INFO };
