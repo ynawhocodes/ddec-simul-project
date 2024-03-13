@@ -12,11 +12,6 @@ import { RecoilRoot } from "recoil";
 export default function Home() {
   const [data, setData] = useState();
 
-  const handleStorageTypeByLocalId = (
-    localId: number,
-    storageType: string
-  ) => {};
-
   // const test = async () => {
   //   try {
   //     const response = await fetch("/api/test");
@@ -47,9 +42,7 @@ export default function Home() {
           </div>
           <div className="flex-col lg:flex-row gap-2 flex">
             <div className="lg:basis-[70%]">
-              <DistributionMap
-                handleStorageTypeByLocalId={handleStorageTypeByLocalId}
-              />
+              <DistributionMap />
             </div>
             <div className="flex lg:flex-col gap-2 lg:basis-[30%]">
               <div className="basis-auto">

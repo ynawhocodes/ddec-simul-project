@@ -4,13 +4,7 @@ import { useStategy } from "@/_recoil/_hooks/useStrategy";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const Caption = ({
-  localId,
-  handleStorageTypeByLocalId,
-}: {
-  localId: number;
-  handleStorageTypeByLocalId: (localId: number, storageType: string) => void;
-}) => {
+const Caption = ({ localId }: { localId: number }) => {
   const { isCustomizationMode } = useCustomizationMode();
   const { getStorageType, setStorageType } = useStategy();
 
@@ -30,7 +24,6 @@ const Caption = ({
                 checked={getStorageType(localId) === "CLOUD"}
                 onChange={() => {
                   setStorageType(localId, "CLOUD");
-                  handleStorageTypeByLocalId(localId, "CLOUD");
                 }}
               />
               <label className="text-[12px]">Cloud</label>
@@ -43,7 +36,6 @@ const Caption = ({
                 checked={getStorageType(localId) === "EDGE"}
                 onChange={() => {
                   setStorageType(localId, "EDGE");
-                  handleStorageTypeByLocalId(localId, "EDGE");
                 }}
               />
               <label className="text-[12px]">Edge</label>
@@ -94,10 +86,8 @@ const Caption = ({
 const CaptionProvider = ({
   localId,
   children,
-  handleStorageTypeByLocalId,
 }: {
   localId: number;
-  handleStorageTypeByLocalId: (localId: number, storageType: string) => void;
   children: React.ReactNode;
 }) => {
   const [isHover, setIsHover] = useState(false);
@@ -111,12 +101,7 @@ const CaptionProvider = ({
       whileHover={{ scale: 1.2, zIndex: 10 }}
     >
       {children}
-      {isHover && (
-        <Caption
-          localId={localId}
-          handleStorageTypeByLocalId={handleStorageTypeByLocalId}
-        />
-      )}
+      {isHover && <Caption localId={localId} />}
     </motion.div>
   );
 };
