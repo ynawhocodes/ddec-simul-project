@@ -14,16 +14,14 @@ import {
 } from "@/_assets/icons";
 import SectionWrapper from "./common/SectionWrapper";
 import CaptionProvider from "./common/Caption";
-import { getStorageType } from "@/_utils/getStorageType";
-import { useLevel } from "@/_recoil/_hooks/useLevel";
+import { useStategy } from "@/_recoil/_hooks/useStrategy";
 
 const DistributionMap = ({
   handleStorageTypeByLocalId,
 }: {
   handleStorageTypeByLocalId: (localId: number, storageType: string) => void;
 }) => {
-  const { level } = useLevel();
-
+  const { getStorageType } = useStategy();
   return (
     <SectionWrapper title="Distribution Map">
       <div className="bg-gray-200 w-full relative">
@@ -34,7 +32,7 @@ const DistributionMap = ({
             localId={1}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <OneBlock storageType={getStorageType(level, 1)} />
+            <OneBlock storageType={getStorageType(1)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[17%] left-[32%] w-[15%]">
@@ -42,7 +40,7 @@ const DistributionMap = ({
             localId={2}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <TwoBlock storageType={getStorageType(level, 2)} />
+            <TwoBlock storageType={getStorageType(2)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[35%] left-[14.5%] w-[10%]">
@@ -50,7 +48,7 @@ const DistributionMap = ({
             localId={3}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <ThreeBlock storageType={getStorageType(level, 3)} />
+            <ThreeBlock storageType={getStorageType(3)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[35%] left-[25.5%] w-[13%]">
@@ -58,7 +56,7 @@ const DistributionMap = ({
             localId={4}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <FourBlock storageType={getStorageType(level, 4)} />
+            <FourBlock storageType={getStorageType(4)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[33%] left-[39%] w-[23%]">
@@ -66,7 +64,7 @@ const DistributionMap = ({
             localId={5}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <FiveBlock storageType={getStorageType(level, 5)} />
+            <FiveBlock storageType={getStorageType(5)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[17%] left-[48%] w-[14%]">
@@ -74,7 +72,7 @@ const DistributionMap = ({
             localId={6}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <SixBlock storageType={getStorageType(level, 6)} />
+            <SixBlock storageType={getStorageType(6)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[17%] left-[63%] w-[15%]">
@@ -82,7 +80,7 @@ const DistributionMap = ({
             localId={7}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <SevenBlock storageType={getStorageType(level, 7)} />
+            <SevenBlock storageType={getStorageType(7)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[34%] left-[63%] w-[14%]">
@@ -90,7 +88,7 @@ const DistributionMap = ({
             localId={8}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <EightBlock storageType={getStorageType(level, 8)} />
+            <EightBlock storageType={getStorageType(8)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[56%] left-[15%] w-[16%]">
@@ -98,7 +96,7 @@ const DistributionMap = ({
             localId={9}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <NineBlock storageType={getStorageType(level, 9)} />
+            <NineBlock storageType={getStorageType(9)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[56%] left-[32%] w-[15%]">
@@ -106,7 +104,7 @@ const DistributionMap = ({
             localId={10}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <TenBlock storageType={getStorageType(level, 10)} />
+            <TenBlock storageType={getStorageType(10)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[62%] left-[48%] w-[14%]">
@@ -114,7 +112,7 @@ const DistributionMap = ({
             localId={11}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <ElevenBlock storageType={getStorageType(level, 11)} />
+            <ElevenBlock storageType={getStorageType(11)} />
           </CaptionProvider>
         </div>
         <div className="absolute top-[61%] left-[63%] w-[15%]">
@@ -122,7 +120,7 @@ const DistributionMap = ({
             localId={12}
             handleStorageTypeByLocalId={handleStorageTypeByLocalId}
           >
-            <TwelveBlock storageType={getStorageType(level, 12)} />
+            <TwelveBlock storageType={getStorageType(12)} />
           </CaptionProvider>
         </div>
       </div>

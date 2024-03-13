@@ -1,7 +1,6 @@
 import { captionInfo } from "@/_assets/data/caption";
 import { useCustomizationMode } from "@/_recoil/_hooks/useCustomizationMode";
-import { useLevel } from "@/_recoil/_hooks/useLevel";
-import { getStorageType } from "@/_utils/getStorageType";
+import { useStategy } from "@/_recoil/_hooks/useStrategy";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -12,12 +11,8 @@ const Caption = ({
   localId: number;
   handleStorageTypeByLocalId: (localId: number, storageType: string) => void;
 }) => {
-  const { level, setLevel } = useLevel();
-  const { isCustomizationMode, setIsCustomizationMode } =
-    useCustomizationMode();
-  const [storageType, setStorageType] = useState(
-    getStorageType(level, localId)
-  );
+  const { isCustomizationMode } = useCustomizationMode();
+  const { getStorageType, setStorageType } = useStategy();
 
   return (
     <div className="p-3 flex flex-col gap-1 absolute left-10 top-10 bg-white/80 rounded-lg shadow-lg flex-nowrap cursor-pointer">
@@ -31,10 +26,10 @@ const Caption = ({
               <input
                 className="checked:bg-slate-500"
                 type="radio"
-                value={storageType}
-                checked={storageType === "CLOUD"}
+                value={getStorageType(localId)}
+                checked={getStorageType(localId) === "CLOUD"}
                 onChange={() => {
-                  setStorageType("CLOUD");
+                  setStorageType(localId, "CLOUD");
                   handleStorageTypeByLocalId(localId, "CLOUD");
                 }}
               />
@@ -44,10 +39,10 @@ const Caption = ({
               <input
                 className="checked:bg-slate-500"
                 type="radio"
-                value={storageType}
-                checked={storageType === "EDGE"}
+                value={getStorageType(localId)}
+                checked={getStorageType(localId) === "EDGE"}
                 onChange={() => {
-                  setStorageType("EDGE");
+                  setStorageType(localId, "EDGE");
                   handleStorageTypeByLocalId(localId, "EDGE");
                 }}
               />
@@ -56,7 +51,7 @@ const Caption = ({
           </div>
         ) : (
           <>
-            <label className="text-[12px]">{storageType}</label>
+            <label className="text-[12px]">{getStorageType(localId)}</label>
           </>
         )}
       </div>
@@ -71,7 +66,9 @@ const Caption = ({
           Storage id:
         </p>
         <p className="text-[12px]">
-          {storageType === "CLOUD" ? "0" : captionInfo[localId - 1].local_id}
+          {getStorageType(localId) === "CLOUD"
+            ? "0"
+            : captionInfo[localId - 1].local_id}
         </p>
       </div>
       <div className="flex gap-1">
