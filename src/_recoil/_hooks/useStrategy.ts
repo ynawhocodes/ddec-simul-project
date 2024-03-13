@@ -1,4 +1,4 @@
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { allOfStrategyData } from "@/_assets/data/strategy";
 import { strategyState } from "../selector";
 import { StrategyType } from "@/_types/data";

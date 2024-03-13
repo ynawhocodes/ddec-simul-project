@@ -16,7 +16,7 @@ import SectionWrapper from "./common/SectionWrapper";
 import CaptionProvider from "./common/Caption";
 import { useStrategy } from "@/_recoil/_hooks/useStrategy";
 
-const DistributionMap = ({}: {}) => {
+const DistributionMap = () => {
   const { getStorageType } = useStrategy();
   return (
     <SectionWrapper title="Distribution Map">
