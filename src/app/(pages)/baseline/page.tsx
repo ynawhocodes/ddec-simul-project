@@ -24,14 +24,14 @@ const BaselinePage = () => {
       <div className="flex flex-col gap-2 basis-[80%]">
         <div className="flex justify-end w-full py-4">
           <motion.button
-            className="bg-[#5D63F1] hover:bg-[#5D63F1]/50 text-white py-2 md:h-10 md:w-20 rounded-md"
+            className="bg-[#5D63F1] hover:bg-[#5D63F1]/50 text-white py-2 h-10 w-20 rounded-md"
             onClick={postStrategyData}
             whileTap={{ scale: 0.85 }}
           >
             submit
           </motion.button>
         </div>
-        <div className="flex flex-1 overflow-x-auto gap-2 w-[80vw]">
+        <div className="flex flex-1 overflow-x-auto gap-2 sm:w-[80vw]">
           {CONTENT.map((el, i) => (
             <LevelOption
               key={i}
