@@ -6,41 +6,17 @@ import DistributionMap from "../(components)/DistributionMap";
 import EstimatedCosts from "../(components)/EstimatedCosts";
 import EstimatedPerformance from "../(components)/EstimatedPerformance";
 import TotalResult from "../(components)/TotalResult";
-import { useEffect, useState } from "react";
-import { ResultType } from "@/_types/data";
-import { defaultResultValue } from "@/_assets/data/defaultResultValue";
-import { useStrategy } from "@/_recoil/_hooks/useStrategy";
 import Loading from "../(components)/common/Loading";
+import usePostStrategy from "@/_api/usePostStrategy";
 
 export default function Home() {
-  const [data, setData] = useState<ResultType>(defaultResultValue);
-  const [isLoading, setIsLoading] = useState(false);
-  const { strategy } = useStrategy();
-
-  const postStrategyData = async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch("/api/postStrategy", {
-        method: "POST",
-        body: JSON.stringify({
-          strategy: strategy,
-        }),
-      });
-      const result = await response.json();
-      setData(result.data);
-      setIsLoading(false);
-
-      return data;
-    } catch (error) {
-      throw new Error("[싪패]");
-    }
-  };
+  const { isLoading, postStrategyData, data } = usePostStrategy();
 
   return (
     <main className="flex flex-col sm:flex-row px-4 py-5 w-full gap-2">
       {isLoading && <Loading />}
       <div className="basis-[20%]">
-        <Entity />
+        <Entity menu="user" />
       </div>
       <div className="flex flex-col w-full gap-2">
         <div className="basis-auto">
