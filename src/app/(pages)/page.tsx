@@ -36,28 +36,6 @@ export default function Home() {
     }
   };
 
-  const getDummyResult = async () => {
-    try {
-      const response = await fetch("/api/getDummyResult");
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      throw new Error("[싪패]");
-    }
-  };
-
-  useEffect(() => {
-    (async () => {
-      // const result = await postStrategyData();
-      // setData(result.data.result);
-      // console.log(">>>>>", result.data.result);
-    })();
-    // (async () => {
-    //   const result = await getDummyResult();
-    //   console.log(">>>>>", result);
-    // })();
-  }, []);
-
   return (
     <main className="flex flex-col sm:flex-row px-4 py-5 w-full gap-2">
       {isLoading && <Loading />}
